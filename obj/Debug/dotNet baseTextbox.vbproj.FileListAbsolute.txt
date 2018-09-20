@@ -1,0 +1,15 @@
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\bin\Debug\dotNet baseTextbox.exe.config
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\bin\Debug\dotNet baseTextbox.exe.manifest
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\bin\Debug\dotNet baseTextbox.application
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\bin\Debug\dotNet baseTextbox.exe
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\bin\Debug\dotNet baseTextbox.pdb
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\bin\Debug\dotNet baseTextbox.xml
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\obj\Debug\dotNet baseTextbox.vbprojResolveAssemblyReference.cache
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\obj\Debug\dotNet_baseTextbox.Form1.resources
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\obj\Debug\dotNet_baseTextbox.Resources.resources
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\obj\Debug\dotNet baseTextbox.vbproj.GenerateResource.Cache
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\obj\Debug\dotNet baseTextbox.exe.manifest
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\obj\Debug\dotNet baseTextbox.application
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\obj\Debug\dotNet baseTextbox.exe
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\obj\Debug\dotNet baseTextbox.xml
+C:\Users\Sockm\Documents\Visual Studio 2017\Projects\dotNet baseTextbox\dotNet baseTextbox\obj\Debug\dotNet baseTextbox.pdb
