@@ -1,4 +1,4 @@
-﻿Public Class baseTextbox
+﻿Public Class bTextbox
     Inherits Control
 
     Sub New()
@@ -7,39 +7,7 @@
         Text = Name
     End Sub
 
-    Protected Overrides Sub OnClick(e As EventArgs)
-        MyBase.OnClick(e)
-        Me.OnGotFocus(New EventArgs)
-    End Sub
-
-    Protected Overrides Sub OnGotFocus(e As EventArgs)
-        MyBase.OnGotFocus(e)
-        CreateCaret(Handle, IntPtr.Zero, 1, TextRenderer.MeasureText("I", Font).Height)
-        SetCaretPos(30, 3)
-        ShowCaret(Handle)
-    End Sub
-
-    Protected Overrides Sub OnLostFocus(e As EventArgs)
-        MyBase.OnLostFocus(e)
-        DestroyCaret
-    End Sub
-
-    Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
-        Select Case keyData
-            Case Keys.Up
-                MsgBox("w")
-                Return MyBase.ProcessCmdKey(msg, keyData)
-            Case Keys.Left
-                MsgBox("a")
-                Return MyBase.ProcessCmdKey(msg, keyData)
-            Case Keys.Down
-                MsgBox("s")
-                Return MyBase.ProcessCmdKey(msg, keyData)
-            Case Keys.Right
-                MsgBox("d")
-                Return MyBase.ProcessCmdKey(msg, keyData)
-        End Select
-    End Function
+    Dim ActiveArea As New Rectangle(New Point(1, 3), New Size(Width - 2, Height - 6))
 
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
         MyBase.OnPaint(e)
@@ -48,49 +16,40 @@
         g.Clear(Color.White)
         ControlPaint.DrawBorder(g, ClientRectangle, Color.Black, ButtonBorderStyle.Solid)
 
-        Dim newG As Graphics = CreateGraphics()
-
-        Dim pointerLocation As Point = New Point(1, 3)
-
-        Dim processedLines As Line() = processText(Text, Font, g)
-        For Each processedLine In processedLines
-            TextRenderer.DrawText(g, processedLine.Text, Font, pointerLocation, ForeColor)
-            pointerLocation.Y += processedLine.Size.Height
+        Dim pointerPosition As New Point(0, 2)
+        For Each ProcessedLine As String In ProcessLines(Text, Font, g)
+            TextRenderer.DrawText(g, ProcessedLine, Font, New Point(ActiveArea.X + pointerPosition.X, ActiveArea.Y + pointerPosition.Y), ForeColor)
+            pointerPosition.Y += MeasureString(IIf(String.IsNullOrEmpty(ProcessedLine), "I", ProcessedLine), Font).Height
         Next
     End Sub
 
-    Public Function processText(input As String, font As Font, g As Graphics) As Line()
-        Dim processedLines As New List(Of Line)
+    Private Function ProcessLines(input As String, font As Font, g As Graphics) As String()
+        Dim processedLines As New List(Of String)
 
-        For Each NewLineByChar As String In input.Split(New String() {vbNewLine}, StringSplitOptions.None)
-
-            Dim newProcessedLine As New Line
-            Dim SegmentsByChar() As String = NewLineByChar.Split(" "c)
-            For Each Segment In SegmentsByChar
-                Dim FixedSegment As String = IIf(Segment = SegmentsByChar(0), "", " ") & Segment
-
-                For Each CharsInSegment As Char In FixedSegment.ToCharArray
-
-                    If newProcessedLine.Size.Width < (Width + 1) Then
-                        newProcessedLine.Add(font, CharsInSegment, g)
-                    Else
-                        processedLines.Add(newProcessedLine)
-                        newProcessedLine = New Line
-                        newProcessedLine.Add(font, CharsInSegment, g)
-                    End If
-
-                Next
-
-            Next
-            processedLines.Add(newProcessedLine)
+        For Each newLine As String In input.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
+            processedLines.Add(newLine)
         Next
 
         Return processedLines.ToArray
     End Function
 
+    Protected Overrides Sub OnParentFontChanged(e As EventArgs)
+        MyBase.OnParentFontChanged(e)
+        Invalidate()
+    End Sub
+
+    Protected Overrides Sub OnFontChanged(e As EventArgs)
+        MyBase.OnFontChanged(e)
+        Invalidate()
+    End Sub
+
+    Protected Overrides Sub OnTextChanged(e As EventArgs)
+        MyBase.OnTextChanged(e)
+        Invalidate()
+    End Sub
+
     Protected Overrides Sub OnResize(e As EventArgs)
         MyBase.OnResize(e)
         Invalidate()
     End Sub
-
 End Class

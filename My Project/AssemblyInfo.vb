@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("dotNet baseTextbox")>
+<Assembly: AssemblyTitle("baseTextbox")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("dotNet baseTextbox")>
+<Assembly: AssemblyProduct("baseTextbox")>
 <Assembly: AssemblyCopyright("Copyright ©  2018")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("9e5794a6-129a-482c-b282-0ff1fad67639")>
+<Assembly: Guid("68f5d72a-955c-4af7-b462-bb21a1d850c7")>
 
 ' Version information for an assembly consists of the following four values:
 '
